@@ -77,13 +77,6 @@
 // Default is max speed that hardware controller could support with on-chip PHY
 #define CFG_TUH_MAX_SPEED     BOARD_TUH_MAX_SPEED
 
-/* USB DMA on some MCUs can only access a specific SRAM region with restriction on alignment.
- * Tinyusb use follows macros to declare transferring memory so that they can be put
- * into those specific section.
- * e.g
- * - CFG_TUSB_MEM SECTION : __attribute__ (( section(".usb_ram") ))
- * - CFG_TUSB_MEM_ALIGN   : __attribute__ ((aligned(4)))
- */
 #ifndef CFG_TUSB_MEM_SECTION
 #define CFG_TUSB_MEM_SECTION
 #endif
@@ -101,7 +94,6 @@
 
 #define CFG_TUH_HUB                 1 // number of supported hubs
 #define CFG_TUH_HID                 4 // typical keyboard + mouse device can have 3-4 HID interfaces
-// #define CFG_TUH_VENDOR              0
 
 // max device support (excluding hub device)
 #define CFG_TUH_DEVICE_MAX          (CFG_TUH_HUB ? 4 : 1) // hub typically has 4 ports
