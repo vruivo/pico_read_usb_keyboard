@@ -25,14 +25,14 @@ int main() {
   gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
   gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
 
-  // TinyUSB, init host stack on configured roothub port
+  // TinyUSB, init host stack on configured RootHub Port
   tuh_init(BOARD_TUH_RHPORT);
 
   // turn on onboard led
   board_led_write(true);
 
   while(true) {
-    tuh_task();
+    tuh_task();  // tinyusb host task
   }
 
   return 0;
